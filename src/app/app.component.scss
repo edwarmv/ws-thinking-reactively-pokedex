@@ -1,0 +1,39 @@
+:host {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  height: 100%;
+  padding: 4px;
+  background-color: var(--color-identity-primary);
+}
+
+header {
+  display: grid;
+  row-gap: 8px;
+  color: var(--color-white-gray);
+  p {
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    ed-icon {
+      height: 24px;
+      width: 24px;
+    }
+  }
+  padding: {
+    left: 12px;
+    top: 12px;
+    right: 12px;
+    bottom: 24px;
+  }
+  .filters {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    column-gap: 16px;
+  }
+}
+
+main {
+  background-color: var(--color-white-gray);
+  border-radius: 8px;
+  box-shadow: var(--inner-shadow);
+}
