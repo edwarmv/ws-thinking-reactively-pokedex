@@ -1,0 +1,14 @@
+:host {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  background-color: var(--color-white-gray);
+  border-radius: 16px;
+  color: var(--color-identity-primary);
+  box-shadow: var(--inner-shadow);
+}
+
+ed-icon {
+  width: 16px;
+  height: 16px;
+}
