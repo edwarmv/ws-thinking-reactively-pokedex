@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+@use "base";
+@use "base/colors";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: var(--color-white-gray);
+  color: var(--color-dark-gray);
+  @include colors.light();
+}

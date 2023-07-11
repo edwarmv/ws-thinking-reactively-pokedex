@@ -1,0 +1,59 @@
+$color-identity-primary: #dc0a2d;
+$color-identity-secondary: #28aafd;
+
+$color-dark-gray: #1d1d1d;
+$color-medium-gray: #666666;
+$color-light-gray: #e0e0e0;
+$color-background-gray: #efefef;
+$color-white-gray: #ffffff;
+$color-wireframe-gray: #b8b8b8;
+
+$color-poketype-bug: #a7b723;
+$color-poketype-dark: #75574c;
+$color-poketype-dragon: #7037ff;
+$color-poketype-electric: #f9cf30;
+$color-poketype-fairy: #e69eac;
+$color-poketype-fighting: #c12239;
+$color-poketype-fire: #f57d31;
+$color-poketype-flying: #a891ec;
+$color-poketype-ghost: #70559b;
+$color-poketype-grass: #74cb48;
+$color-poketype-ground: #dec16b;
+$color-poketype-ice: #9ad6df;
+$color-poketype-normal: #aaa67f;
+$color-poketype-poison: #a43e9e;
+$color-poketype-psychic: #fb5584;
+$color-poketype-rock: #b69e31;
+$color-poketype-steel: #b7b9d0;
+$color-poketype-water: #6493eb;
+
+@mixin light() {
+  --color-identity-primary: #{$color-identity-primary};
+  --color-identity-secondary: #{$color-identity-secondary};
+
+  --color-dark-gray: #{$color-dark-gray};
+  --color-medium-gray: #{$color-medium-gray};
+  --color-light-gray: #{$color-light-gray};
+  --color-background-gray: #{$color-background-gray};
+  --color-white-gray: #{$color-white-gray};
+  --color-wireframe-gray: #{$color-wireframe-gray};
+
+  --color-poketype-bug: #{$color-poketype-bug};
+  --color-poketype-dark: #{$color-poketype-dark};
+  --color-poketype-dragon: #{$color-poketype-dragon};
+  --color-poketype-electric: #{$color-poketype-electric};
+  --color-poketype-fairy: #{$color-poketype-fairy};
+  --color-poketype-fighting: #{$color-poketype-fighting};
+  --color-poketype-fire: #{$color-poketype-fire};
+  --color-poketype-flying: #{$color-poketype-flying};
+  --color-poketype-ghost: #{$color-poketype-ghost};
+  --color-poketype-grass: #{$color-poketype-grass};
+  --color-poketype-ground: #{$color-poketype-ground};
+  --color-poketype-ice: #{$color-poketype-ice};
+  --color-poketype-normal: #{$color-poketype-normal};
+  --color-poketype-poison: #{$color-poketype-poison};
+  --color-poketype-psychic: #{$color-poketype-psychic};
+  --color-poketype-rock: #{$color-poketype-rock};
+  --color-poketype-steel: #{$color-poketype-steel};
+  --color-poketype-water: #{$color-poketype-water};
+}
