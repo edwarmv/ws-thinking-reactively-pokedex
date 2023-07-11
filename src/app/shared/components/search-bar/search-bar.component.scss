@@ -1,0 +1,24 @@
+:host {
+  padding: 8px 16px;
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+  height: 32px;
+  border-radius: 16px;
+  background-color: var(--color-white-gray);
+  box-shadow: var(--inner-shadow);
+}
+
+ed-icon {
+  color: var(--color-identity-primary);
+  height: 16px;
+  width: 16px;
+}
+
+
+input {
+  outline: none;
+  border: none;
+  height: 16px;
+  width: 100%;
+}
