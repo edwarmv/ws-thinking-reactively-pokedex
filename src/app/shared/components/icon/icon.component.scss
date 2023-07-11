@@ -1,0 +1,12 @@
+:host {
+  display: inline-block;
+  padding: 8px;
+  height: 48px;
+  width: 48px;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: currentColor;
+  }
+}
