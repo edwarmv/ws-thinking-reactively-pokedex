@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from 'src/app/shared/components/icon/icon.component';
 import { PokemonCardComponent } from 'src/app/shared/components/pokemon-card/pokemon-card.component';
@@ -7,6 +7,7 @@ import { SortBtnComponent } from 'src/app/shared/components/sort-btn/sort-btn.co
 import { PokeapiService } from 'src/app/core/services/pokeapi.service';
 import { RouterLink } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { combineLatestWith, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'ed-pokedex-list',
@@ -25,9 +26,15 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokedexListComponent {
-  pokemons$ = this._pokeapiService.getPokemons();
+  private _pokeapiService = inject(PokeapiService);
   searchControl = new FormControl('');
-  constructor(private _pokeapiService: PokeapiService) {
-    this.searchControl.valueChanges.subscribe(console.log);
-  }
+  term$ = this.searchControl.valueChanges.pipe(startWith(''));
+  pokemons$ = this._pokeapiService.getPokemons().pipe(
+    combineLatestWith(this.term$),
+    map(([pokemons, term]) =>
+      pokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(term ? term.toLowerCase() : ''),
+      ),
+    ),
+  );
 }
