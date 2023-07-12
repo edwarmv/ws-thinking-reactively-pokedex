@@ -1,0 +1,42 @@
+<ng-container *ngIf="pokemon$ | async as pokemon">
+  <h1 class="title">
+    <ed-icon name="ArrowBack" routerLink="/"></ed-icon>
+    <span class="typography--headline">{{ pokemon.name }}</span>
+    <span class="typography--subtitle2">#{{ pokemon.order }}</span>
+  </h1>
+
+  <figure>
+    <img [src]="pokemon.sprites.frontDefault" alt="Pokémon" />
+  </figure>
+
+  <section class="card">
+    <p class="card-title typography--subtitle1">About</p>
+    <article class="about">
+      <div class="topic">
+        <p class="topic__info typography--body3">
+          <ed-icon name="Weight"></ed-icon><span>{{ pokemon.weight }} kg</span>
+        </p>
+        <p class="topic__label typography--caption">Weight</p>
+      </div>
+      <div class="topic">
+        <p class="topic__info typography--body3">
+          <ed-icon name="Straighten"></ed-icon>
+          <span class="topic__label">{{ pokemon.height }} m</span>
+        </p>
+        <p class="topic__label typography--caption">Height</p>
+      </div>
+      <div class="topic">
+        <div class="topic__infos">
+          <p class="topic__info typography--body3">Ability 1</p>
+          <p class="topic__info typography--body3">Ability 2</p>
+        </div>
+        <p class="topic__label typography--caption">Moves</p>
+      </div>
+    </article>
+    <p class="description typography--body3">
+      Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum
+      sint consectetur cupidatat.
+    </p>
+    <p class="card-title typography--subtitle1">Base Stats</p>
+  </section>
+</ng-container>
