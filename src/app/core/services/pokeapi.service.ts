@@ -35,4 +35,10 @@ export class PokeapiService {
       }),
     );
   }
+
+  getPokemon(id: number): Observable<Pokemon> {
+    return this._http
+      .get(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+      .pipe(map((value) => this._pokemonAdapter.adapt(value)));
+  }
 }
