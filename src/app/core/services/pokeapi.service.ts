@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, from, map, mergeMap, mergeScan, of, tap } from 'rxjs';
+import { Observable, from, map, mergeMap, mergeScan } from 'rxjs';
 import { PokeAPIAdapter } from '../models/pokeapi';
 import { Result } from '../models/result';
 import { Pokemon, PokemonAdapter } from '../models/pokemon';
