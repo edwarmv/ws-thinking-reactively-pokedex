@@ -1,0 +1,41 @@
+:host {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  width: 104px;
+  height: 108px;
+  border-radius: 8px;
+  box-shadow: var(--drop-shadow);
+}
+
+.number {
+  color: var(--color-medium-gray);
+  height: 16px;
+  padding: {
+    left: 4px;
+    top: 8px;
+    right: 4px;
+    bottom: 0;
+  }
+  display: flex;
+  justify-content: flex-end;
+}
+
+figure {
+  display: grid;
+  position: relative;
+  img {
+    height: 72px;
+    width: auto;
+    justify-self: center;
+    position: absolute;
+  }
+  figcaption {
+    background-color: var(--color-background-gray);
+    color: var(--color-dark-gray);
+    border-radius: 8px;
+    height: 44px;
+    margin-top: auto;
+    display: grid;
+    justify-content: center;
+  }
+}
