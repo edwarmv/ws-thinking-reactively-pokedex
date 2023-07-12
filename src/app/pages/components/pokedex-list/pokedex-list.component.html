@@ -1,0 +1,18 @@
+<header>
+  <p class="typography--headline">
+    <ed-icon name="Pokeball"></ed-icon> Pokédex
+  </p>
+  <div class="filters">
+    <ed-search-bar></ed-search-bar>
+    <ed-sort-btn></ed-sort-btn>
+  </div>
+</header>
+
+<main>
+  <ed-pokemon-card
+    *ngFor="let pokemon of pokemons$ | async"
+    [name]="pokemon.name"
+    [order]="pokemon.order"
+    [imgSrc]="pokemon.sprites.frontDefault"
+  ></ed-pokemon-card>
+</main>
