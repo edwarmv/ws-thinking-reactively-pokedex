@@ -40,6 +40,7 @@ main {
   border-radius: 8px;
   box-shadow: var(--inner-shadow);
   display: grid;
-  grid-template-columns: repeat(3, 104px);
+  grid-template-columns: repeat(auto-fill, 104px);
+  grid-template-rows: repeat(auto-fill, 108px);
   gap: 8px;
 }
