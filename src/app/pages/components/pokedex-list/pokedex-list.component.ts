@@ -27,14 +27,39 @@ import { combineLatestWith, map, startWith } from 'rxjs';
 })
 export class PokedexListComponent {
   private _pokeapiService = inject(PokeapiService);
+
   searchControl = new FormControl('');
   term$ = this.searchControl.valueChanges.pipe(startWith(''));
-  pokemons$ = this._pokeapiService.getPokemons().pipe(
-    combineLatestWith(this.term$),
-    map(([pokemons, term]) =>
-      pokemons.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(term ? term.toLowerCase() : ''),
-      ),
+
+  sortByControl = new FormControl('none', { nonNullable: true });
+  sortBy$ = this.sortByControl.valueChanges.pipe(startWith('none'));
+
+  pokemons$ = this._pokeapiService.getPokemons();
+
+  filteredPokemons$ = this.pokemons$.pipe(
+    combineLatestWith(this.term$, this.sortBy$),
+    map(([pokemons, term, sortBy]) =>
+      pokemons
+        .filter((pokemon) =>
+          pokemon.name.toLowerCase().includes(term ? term.toLowerCase() : ''),
+        )
+        .sort((value1, value2) => {
+          if (sortBy === 'name') {
+            return value1.name.toUpperCase() > value2.name.toUpperCase()
+              ? 1
+              : value1.name.toUpperCase() < value2.name.toUpperCase()
+              ? -1
+              : 0;
+          }
+          if (sortBy === 'order') {
+            return value1.order < value2.order
+              ? 1
+              : value1.order > value2.order
+              ? -1
+              : 0;
+          }
+          return 0;
+        }),
     ),
   );
 }

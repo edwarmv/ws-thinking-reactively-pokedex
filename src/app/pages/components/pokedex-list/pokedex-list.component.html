@@ -4,13 +4,13 @@
   </p>
   <div class="filters">
     <ed-search-bar [formControl]="searchControl"></ed-search-bar>
-    <ed-sort-btn></ed-sort-btn>
+    <ed-sort-btn [formControl]="sortByControl"></ed-sort-btn>
   </div>
 </header>
 
 <main>
   <ed-pokemon-card
-    *ngFor="let pokemon of pokemons$ | async"
+    *ngFor="let pokemon of filteredPokemons$ | async"
     [name]="pokemon.name"
     [order]="pokemon.order"
     [imgSrc]="pokemon.sprites.frontDefault"
