@@ -1,15 +1,49 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IconComponent } from '../icon/icon.component';
+import {
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+  ReactiveFormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'ed-search-bar',
   standalone: true,
-  imports: [CommonModule, IconComponent],
+  imports: [CommonModule, ReactiveFormsModule, IconComponent],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: SearchBarComponent,
+    },
+  ],
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBarComponent {
-
+export class SearchBarComponent implements ControlValueAccessor {
+  termControl = new FormControl('', { nonNullable: true });
+  onChange = (value: string) => {};
+  onTouced!: () => void;
+  constructor() {
+    this.termControl.valueChanges.subscribe((value) => this.onChange(value));
+  }
+  writeValue(value: string): void {
+    this.termControl.setValue(value);
+  }
+  registerOnChange(fn: (value: string) => void): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: () => void): void {
+    this.onTouced = fn;
+  }
+  setDisabledState?(isDisabled: boolean): void {
+    if (isDisabled) {
+      this.termControl.disable();
+    } else {
+      this.termControl.enable();
+    }
+  }
 }

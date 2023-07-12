@@ -6,6 +6,7 @@ import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-
 import { SortBtnComponent } from 'src/app/shared/components/sort-btn/sort-btn.component';
 import { PokeapiService } from 'src/app/core/services/pokeapi.service';
 import { RouterLink } from '@angular/router';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'ed-pokedex-list',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
   imports: [
     CommonModule,
     RouterLink,
+    ReactiveFormsModule,
     SearchBarComponent,
     IconComponent,
     SortBtnComponent,
@@ -24,5 +26,8 @@ import { RouterLink } from '@angular/router';
 })
 export class PokedexListComponent {
   pokemons$ = this._pokeapiService.getPokemons();
-  constructor(private _pokeapiService: PokeapiService) {}
+  searchControl = new FormControl('');
+  constructor(private _pokeapiService: PokeapiService) {
+    this.searchControl.valueChanges.subscribe(console.log);
+  }
 }
