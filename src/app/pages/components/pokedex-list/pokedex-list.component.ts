@@ -5,12 +5,14 @@ import { PokemonCardComponent } from 'src/app/shared/components/pokemon-card/pok
 import { SearchBarComponent } from 'src/app/shared/components/search-bar/search-bar.component';
 import { SortBtnComponent } from 'src/app/shared/components/sort-btn/sort-btn.component';
 import { PokeapiService } from 'src/app/core/services/pokeapi.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'ed-pokedex-list',
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     SearchBarComponent,
     IconComponent,
     SortBtnComponent,
